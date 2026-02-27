@@ -1,9 +1,23 @@
-// STEP 1: create context
-// 1. import the createContext
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 
-// 2. create the context
 const BooksContext = createContext();
 
-// 3. export the context
+function Provider({children}) {
+    const [count, setCount] = useState(5);
+
+    const valueToShare = {
+        count,
+        incrementCount: () => {
+            setCount(count + 1);
+        }
+    }
+    
+    return <BooksContext.Provider value={valueToShare}>
+        {children}
+    </BooksContext.Provider>
+}
+// named export
+export { Provider };
+
+// default export
 export default BooksContext;
