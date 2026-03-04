@@ -55,7 +55,7 @@ function Provider({children}) {
 			fetchBooks
 		}
 
-    return <BooksContext.Provider value={{valueToShare}}>
+    return <BooksContext.Provider value={valueToShare}>
         {children}
     </BooksContext.Provider>
 }
